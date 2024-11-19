@@ -132,7 +132,7 @@
                     <div id="addresses-container">
                         <div class="with-trashbin">
                             <div class="address-container">
-                                <input type="text" placeholder="123 Any Street, Anywhere City" required>
+                                <input type="text" placeholder="123 Any Street" required>
                                 <select id="country" name="country" onchange="fetchStates()">
                                     <option value="">---Country---</option>
                                 </select>
@@ -178,7 +178,8 @@
                     <div id="educations-container">
                         <div class="with-trashbin">
                             <div class="education-container">
-                                <input type="text" name="university" placeholder="University Name" required>
+                                <input type="text" name="university" placeholder="University" required>
+                                <input type="text" name="major" placeholder="Major" required>
                                 <input type="text" name="degree" placeholder="Degree" required>
                                 <input type="text" name="gpa" placeholder="GPA" required>
                                 <div class="year-container">
@@ -186,7 +187,6 @@
                                     <input type="number" name="end" placeholder="End Year" min=1980 max=2024 required>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="add-button-wrapper">
@@ -204,11 +204,12 @@
                             <div class="experience-container">
                                 <input type="text" name="job" placeholder="Job Title" required>
                                 <input type="text" name="company" placeholder="Company" required>
+                                <input type="text" name="employer" placeholder="Employer" required>
                                 <div class="year-container">
                                     <input type="number" name="start" min=1980 max=2024 placeholder="Start Year" required>
                                     <input type="number" name="end" min=1980 max=2024 placeholder="End Year" required>
                                 </div>
-                                <textarea name="description" placeholder="Description of responsibilities" rows="3" required></textarea>
+                                <textarea name="description" placeholder="Description of responsibilities" required></textarea>
                             </div>
 
                         </div>
@@ -241,13 +242,15 @@
                         <ion-icon name="people"></ion-icon>
                         <label>Who can view your CV? (Optional)</label>
                     </div>
+                    <div id="allowers-selector">
+                        <select onchange="">
+                            <option value="">---Choose one---</option>
+                            <option value="1">Only me</option>
+                            <option value="1">Everyone</option>
+                            <option value="1">Specified</option>
+                        </select>
+                    </div>
                     <div id="allowers-container">
-                        <div class="with-trashbin">
-                            <div class="allower-container">
-                                <input type="text" name="field" placeholder="Email...">
-                            </div>
-
-                        </div>
                     </div>
                     <div class="add-button-wrapper">
                         <button type="button" class="add-button" id="add-allower-button">+</button>
@@ -301,7 +304,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -314,6 +317,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -353,6 +357,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -362,6 +367,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -379,6 +385,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -391,6 +398,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -431,7 +439,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -444,6 +452,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -483,6 +492,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -492,6 +502,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -509,6 +520,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -521,6 +533,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -561,7 +574,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -574,6 +587,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -613,6 +627,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -622,6 +637,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -639,6 +655,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -651,6 +668,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -691,7 +709,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -704,6 +722,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -743,6 +762,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -752,6 +772,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -769,6 +790,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -781,6 +803,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -821,7 +844,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -834,6 +857,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -873,6 +897,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -882,6 +907,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -899,6 +925,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -911,6 +938,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -951,7 +979,7 @@
                                     <ion-icon name="call"></ion-icon>
                                     <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
-                                    <p>123 Any Street, Anywhere City</p>
+                                    <p>123 Any Street</p>
                                 </div>
                             </div>
                             <div class="skills">
@@ -964,6 +992,7 @@
                                         <li>Web design &mdash; 4 years</li>
                                         <li>Branding &mdash; 2 years</li>
                                         <li>Marketing &mdash; 2 years</li>
+                                        <li>SEO &mdash; 1 year</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1003,6 +1032,7 @@
                                     </div>
                                     <div class="years">(2011-2015)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.74</div>
                                 </div>
@@ -1012,6 +1042,7 @@
                                     </div>
                                     <div class="years">(2015-2019)</div>
                                     <div class="university">Wardiere University</div>
+                                    <div class="major">Computer Science</div>
                                     <div class="degree">Bachelor of Design</div>
                                     <div class="gpa">3.65</div>
                                 </div>
@@ -1029,6 +1060,7 @@
                                     <div class="years">(2017-2019)</div>
                                     <div class="job">Junior graphic designer</div>
                                     <div class="company">Iarana, inc</div>
+                                    <div class="employer">Dr. Robert J. Kelly</div>
                                     <ul class="achievement">
                                         <li>create more than 100 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -1041,6 +1073,7 @@
                                     <div class="years">(2020-2024)</div>
                                     <div class="job">Senior graphic designer</div>
                                     <div class="company">Fauget studio</div>
+                                    <div class="employer">Michael Andison</div>
                                     <ul class="achievement">
                                         <li>create more than 200 graphic designs for big companies</li>
                                         <li>complete a lot of complicated work</li>
@@ -1267,7 +1300,7 @@
 
             const addressInput = document.createElement('input');
             addressInput.type = 'text';
-            addressInput.placeholder = '123 Any Street, Anywhere City';
+            addressInput.placeholder = '123 Any Street';
             addressInput.required = true;
 
             const countrySelect = document.createElement('select');
@@ -1361,6 +1394,12 @@
             degreeInput.placeholder = 'Degree';
             degreeInput.required = true;
 
+            const majorInput = document.createElement('input');
+            majorInput.type = 'text';
+            majorInput.name = 'major';
+            majorInput.placeholder = 'Major';
+            majorInput.required = true;
+
             const gpaInput = document.createElement('input');
             gpaInput.type = 'text';
             gpaInput.name = 'gpa';
@@ -1390,6 +1429,7 @@
             yearContainer.appendChild(endYearInput);
 
             educationContainer.appendChild(universityInput);
+            educationContainer.appendChild(majorInput);
             educationContainer.appendChild(degreeInput);
             educationContainer.appendChild(gpaInput);
             educationContainer.appendChild(yearContainer);
@@ -1428,6 +1468,12 @@
             companyInput.placeholder = 'Company';
             companyInput.required = true;
 
+            const employerInput = document.createElement('input');
+            employerInput.type = 'text';
+            employerInput.name = 'employer';
+            employerInput.placeholder = 'Employer';
+            employerInput.required = true;
+
             const yearContainer = document.createElement('div');
             yearContainer.classList.add('year-container');
 
@@ -1458,6 +1504,7 @@
 
             experienceContainer.appendChild(jobInput);
             experienceContainer.appendChild(companyInput);
+            experienceContainer.appendChild(employerInput);
             experienceContainer.appendChild(yearContainer);
             experienceContainer.appendChild(descriptionTextarea);
 
@@ -1536,6 +1583,89 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+    </script>
+    <!-- Multilevel dependent dropdown menu  -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const geonamesUsername = "xitrumbumbum"; // Replace with your free GeoNames username
+
+        let mapInitialized = false; // Flag to check if the map has been initialized
+
+        async function fetchCountries() {
+            try {
+                const response = await fetch(`http://api.geonames.org/countryInfoJSON?username=${geonamesUsername}`);
+                const data = await response.json();
+                const countrySelect = document.getElementById("country");
+                countrySelect.innerHTML = '<option value="">---Country---</option>';
+                data.geonames.forEach(country => {
+                    countrySelect.innerHTML += `<option value="${country.geonameId}">${country.countryName}</option>`;
+                });
+            } catch (error) {
+                console.error("Error fetching countries:", error);
+            }
+        }
+
+        async function fetchStates() {
+            const countryId = document.getElementById("country").value;
+            const stateSelect = document.getElementById("state");
+            const citySelect = document.getElementById("city");
+            stateSelect.innerHTML = '<option value="">---State---</option>';
+            citySelect.innerHTML = '<option value="">---City---</option>';
+            if (!countryId) return;
+
+            try {
+                const response = await fetch(`http://api.geonames.org/childrenJSON?geonameId=${countryId}&username=${geonamesUsername}`);
+                const data = await response.json();
+                data.geonames.forEach(state => {
+                    stateSelect.innerHTML += `<option value="${state.geonameId}">${state.name}</option>`;
+                });
+            } catch (error) {
+                console.error("Error fetching states:", error);
+            }
+        }
+
+        async function fetchCities() {
+            const stateId = document.getElementById("state").value;
+            const citySelect = document.getElementById("city");
+            citySelect.innerHTML = '<option value="">---City---</option>';
+            if (!stateId) return;
+
+            try {
+                const response = await fetch(`http://api.geonames.org/childrenJSON?geonameId=${stateId}&username=${geonamesUsername}`);
+                const data = await response.json();
+                data.geonames.forEach(city => {
+                    citySelect.innerHTML += `<option value="${city.lat},${city.lng}">${city.name}</option>`;
+                });
+            } catch (error) {
+                console.error("Error fetching cities:", error);
+            }
+        }
+
+        // Initialize
+        fetchCountries();
+    </script>
+    <!-- Visibility -->
+    <script>
+        const selector = document.querySelector("#allowers-selector select");
+        const allowersContainer = document.getElementById("allowers-container");
+        const addButtonWrapper = document.querySelector(".Allowers .add-button-wrapper");
+
+        // Initially hide the elements
+        allowersContainer.style.display = "none";
+        addButtonWrapper.style.display = "none";
+
+        // Add an event listener for the change event
+        selector.addEventListener("change", function() {
+            if (selector.value === "1" && selector.options[selector.selectedIndex].text === "Specified") {
+                // Show the elements when "Specified" is selected
+                allowersContainer.style.display = "block";
+                addButtonWrapper.style.display = "flex";
+            } else {
+                // Hide the elements otherwise
+                allowersContainer.style.display = "none";
+                addButtonWrapper.style.display = "none";
+            }
+        });
     </script>
     <!----------------------------------------------->
 </body>

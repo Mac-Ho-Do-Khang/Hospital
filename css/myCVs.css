@@ -7,7 +7,15 @@
   column-gap: 20rem;
   margin-top: 2.4rem;
 }
-.cv-tab {
+.cv-tab .add-a-CV {
+  text-transform: uppercase;
+  background-color: #0d1b2a;
+  border: 0.5rem solid #0d1b2a;
+  color: #e0e1dd;
+  text-align: center;
+}
+.cv-tab .add-a-CV:hover {
+  color: #0d1b2a;
 }
 
 /* Style the buttons that are used to open the cv-tab content */
@@ -76,4 +84,8 @@
 .view-CV-details .mails li {
   margin-bottom: 1.2rem;
   list-style: none;
+}
+.edit-CV {
+  grid-column: 1/-1;
+  width: 70%;
 }

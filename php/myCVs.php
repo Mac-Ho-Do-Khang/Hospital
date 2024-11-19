@@ -68,6 +68,7 @@
             <button class="cv-tablinks" onclick="openCity(event, 'Untitled1')" id="defaultOpen">Untitled1</button>
             <button class="cv-tablinks" onclick="openCity(event, 'Untitled2')">Untitled2</button>
             <button class="cv-tablinks" onclick="openCity(event, 'Untitled3')">Untitled3</button>
+            <button class="add-a-CV">Add CV</button>
         </div>
 
         <div id="Untitled1" class="cv-tabcontent" id="defaultOpen">
@@ -82,10 +83,10 @@
                     </div>
 
                     <div class="CV-personal-information">
-                        <div class="about">
+                        <div class="objective">
                             <div class="CV-icon-title">
                                 <ion-icon name="accessibility"></ion-icon>
-                                <span class="title">About me</span>
+                                <span class="title">Objective</span>
                             </div>
                             <div class="details">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -97,12 +98,12 @@
                                 <span class="title">Contact</span>
                             </div>
                             <div class="details">
-                                <ion-icon name="call"></ion-icon>
-                                <p>+919-263-1770</p>
                                 <ion-icon name="mail"></ion-icon>
                                 <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
                                 <ion-icon name="location"></ion-icon>
-                                <p>123 Any Street, Anywhere City</p>
+                                <p>123 Any Street</p>
                             </div>
                         </div>
                         <div class="skills">
@@ -112,24 +113,32 @@
                             </div>
                             <div class="details">
                                 <ul>
-                                    <li>Web design</li>
-                                    <li>Branding</li>
-                                    <li>SEO</li>
-                                    <li>Marketing</li>
+                                    <li>Web design &mdash; 4 years</li>
+                                    <li>Branding &mdash; 2 years</li>
+                                    <li>Marketing &mdash; 2 years</li>
+                                    <li>SEO &mdash; 1 year</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="languages">
+                        <div class="reference">
                             <div class="CV-icon-title">
-                                <ion-icon name="language"></ion-icon>
-                                <span class="title">Languages</span>
+                                <ion-icon name="attach"></ion-icon>
+                                <span class="title">Reference</span>
                             </div>
                             <div class="details">
-                                <ul>
-                                    <li>English</li>
-                                    <li>Mandarin</li>
-                                    <li>German</li>
-                                </ul>
+                                <ion-icon name="mail"></ion-icon>
+                                <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
+                            </div>
+                        </div>
+                        <div class="addition">
+                            <div class="CV-icon-title">
+                                <ion-icon name="information-circle"></ion-icon>
+                                <span class="title">Additional information</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                             </div>
                         </div>
                     </div>
@@ -147,6 +156,7 @@
                                 </div>
                                 <div class="years">(2011-2015)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.74</div>
                             </div>
@@ -156,6 +166,7 @@
                                 </div>
                                 <div class="years">(2015-2019)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.65</div>
                             </div>
@@ -173,6 +184,7 @@
                                 <div class="years">(2017-2019)</div>
                                 <div class="job">Junior graphic designer</div>
                                 <div class="company">Iarana, inc</div>
+                                <div class="employer">Dr. Robert J. Kelly</div>
                                 <ul class="achievement">
                                     <li>create more than 100 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -185,6 +197,7 @@
                                 <div class="years">(2020-2024)</div>
                                 <div class="job">Senior graphic designer</div>
                                 <div class="company">Fauget studio</div>
+                                <div class="employer">Michael Andison</div>
                                 <ul class="achievement">
                                     <li>create more than 200 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -208,6 +221,7 @@
                     <li>garry@js.com</li>
                     <li>mark@php.com</li>
                 </ul>
+                <button class="btn btn-full edit-CV">Edit</button>
             </div>
         </div>
 
@@ -223,10 +237,10 @@
                     </div>
 
                     <div class="CV-personal-information">
-                        <div class="about">
+                        <div class="objective">
                             <div class="CV-icon-title">
                                 <ion-icon name="accessibility"></ion-icon>
-                                <span class="title">About me</span>
+                                <span class="title">Objective</span>
                             </div>
                             <div class="details">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -238,12 +252,12 @@
                                 <span class="title">Contact</span>
                             </div>
                             <div class="details">
-                                <ion-icon name="call"></ion-icon>
-                                <p>+919-263-1770</p>
                                 <ion-icon name="mail"></ion-icon>
                                 <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
                                 <ion-icon name="location"></ion-icon>
-                                <p>123 Any Street, Anywhere City</p>
+                                <p>123 Any Street</p>
                             </div>
                         </div>
                         <div class="skills">
@@ -253,24 +267,32 @@
                             </div>
                             <div class="details">
                                 <ul>
-                                    <li>Web design</li>
-                                    <li>Branding</li>
-                                    <li>SEO</li>
-                                    <li>Marketing</li>
+                                    <li>Web design &mdash; 4 years</li>
+                                    <li>Branding &mdash; 2 years</li>
+                                    <li>Marketing &mdash; 2 years</li>
+                                    <li>SEO &mdash; 1 year</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="languages">
+                        <div class="reference">
                             <div class="CV-icon-title">
-                                <ion-icon name="language"></ion-icon>
-                                <span class="title">Languages</span>
+                                <ion-icon name="attach"></ion-icon>
+                                <span class="title">Reference</span>
                             </div>
                             <div class="details">
-                                <ul>
-                                    <li>English</li>
-                                    <li>Mandarin</li>
-                                    <li>German</li>
-                                </ul>
+                                <ion-icon name="mail"></ion-icon>
+                                <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
+                            </div>
+                        </div>
+                        <div class="addition">
+                            <div class="CV-icon-title">
+                                <ion-icon name="information-circle"></ion-icon>
+                                <span class="title">Additional information</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                             </div>
                         </div>
                     </div>
@@ -288,6 +310,7 @@
                                 </div>
                                 <div class="years">(2011-2015)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.74</div>
                             </div>
@@ -297,6 +320,7 @@
                                 </div>
                                 <div class="years">(2015-2019)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.65</div>
                             </div>
@@ -314,6 +338,7 @@
                                 <div class="years">(2017-2019)</div>
                                 <div class="job">Junior graphic designer</div>
                                 <div class="company">Iarana, inc</div>
+                                <div class="employer">Dr. Robert J. Kelly</div>
                                 <ul class="achievement">
                                     <li>create more than 100 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -326,6 +351,7 @@
                                 <div class="years">(2020-2024)</div>
                                 <div class="job">Senior graphic designer</div>
                                 <div class="company">Fauget studio</div>
+                                <div class="employer">Michael Andison</div>
                                 <ul class="achievement">
                                     <li>create more than 200 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -340,6 +366,9 @@
                 <p>http://abc.com/CV0002</p>
                 <ion-icon name="calendar"></ion-icon>
                 <p>October 3, 2023</p>
+                <ion-icon name="people-circle"></ion-icon>
+                <p>Only me</p>
+                <button class="btn btn-full edit-CV">Edit</button>
             </div>
         </div>
 
@@ -355,10 +384,10 @@
                     </div>
 
                     <div class="CV-personal-information">
-                        <div class="about">
+                        <div class="objective">
                             <div class="CV-icon-title">
                                 <ion-icon name="accessibility"></ion-icon>
-                                <span class="title">About me</span>
+                                <span class="title">Objective</span>
                             </div>
                             <div class="details">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -370,12 +399,12 @@
                                 <span class="title">Contact</span>
                             </div>
                             <div class="details">
-                                <ion-icon name="call"></ion-icon>
-                                <p>+919-263-1770</p>
                                 <ion-icon name="mail"></ion-icon>
                                 <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
                                 <ion-icon name="location"></ion-icon>
-                                <p>123 Any Street, Anywhere City</p>
+                                <p>123 Any Street</p>
                             </div>
                         </div>
                         <div class="skills">
@@ -385,24 +414,32 @@
                             </div>
                             <div class="details">
                                 <ul>
-                                    <li>Web design</li>
-                                    <li>Branding</li>
-                                    <li>SEO</li>
-                                    <li>Marketing</li>
+                                    <li>Web design &mdash; 4 years</li>
+                                    <li>Branding &mdash; 2 years</li>
+                                    <li>Marketing &mdash; 2 years</li>
+                                    <li>SEO &mdash; 1 year</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="languages">
+                        <div class="reference">
                             <div class="CV-icon-title">
-                                <ion-icon name="language"></ion-icon>
-                                <span class="title">Languages</span>
+                                <ion-icon name="attach"></ion-icon>
+                                <span class="title">Reference</span>
                             </div>
                             <div class="details">
-                                <ul>
-                                    <li>English</li>
-                                    <li>Mandarin</li>
-                                    <li>German</li>
-                                </ul>
+                                <ion-icon name="mail"></ion-icon>
+                                <p>schumacher@example.com</p>
+                                <ion-icon name="call"></ion-icon>
+                                <p>+919-263-1770</p>
+                            </div>
+                        </div>
+                        <div class="addition">
+                            <div class="CV-icon-title">
+                                <ion-icon name="information-circle"></ion-icon>
+                                <span class="title">Additional information</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                             </div>
                         </div>
                     </div>
@@ -420,6 +457,7 @@
                                 </div>
                                 <div class="years">(2011-2015)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.74</div>
                             </div>
@@ -429,6 +467,7 @@
                                 </div>
                                 <div class="years">(2015-2019)</div>
                                 <div class="university">Wardiere University</div>
+                                <div class="major">Computer Science</div>
                                 <div class="degree">Bachelor of Design</div>
                                 <div class="gpa">3.65</div>
                             </div>
@@ -446,6 +485,7 @@
                                 <div class="years">(2017-2019)</div>
                                 <div class="job">Junior graphic designer</div>
                                 <div class="company">Iarana, inc</div>
+                                <div class="employer">Dr. Robert J. Kelly</div>
                                 <ul class="achievement">
                                     <li>create more than 100 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -458,6 +498,7 @@
                                 <div class="years">(2020-2024)</div>
                                 <div class="job">Senior graphic designer</div>
                                 <div class="company">Fauget studio</div>
+                                <div class="employer">Michael Andison</div>
                                 <ul class="achievement">
                                     <li>create more than 200 graphic designs for big companies</li>
                                     <li>complete a lot of complicated work</li>
@@ -474,6 +515,9 @@
                 <p>January 5, 2024</p>
                 <ion-icon name="lock-closed"></ion-icon>
                 <p>Abc123-456-789</p>
+                <ion-icon name="people-circle"></ion-icon>
+                <p>Every one</p>
+                <button class="btn btn-full edit-CV">Edit</button>
             </div>
 
         </div>

@@ -41,27 +41,6 @@
             <?php if ($_SESSION['user'] == "jobseeker"): ?> <!----- Header when logged in as a jobseeker ----->
               <li><a class="header-nav-link" href="index.php?page=myCVs" title="Go to view CVs">My CVs</a></li>
               <li><a class="header-nav-link" href="index.php?page=add" title="Go to add CVs">Add CV</a></li>
-              <div class="user-info">
-                <ion-icon class="user-icon" name="person-circle"></ion-icon>
-                <div class="info">
-                  <p><?php echo $_SESSION['user']; ?></p>
-                  <p><?php echo "(user@gmail.com)" ?></p>
-                  <!-- Log out button -->
-                  <form action="index.php?page=login" method="post" style="display: inline;">
-                    <input type="submit" value="Log out" class="logout-btn" />
-                    <?php
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      session_unset();
-                      session_destroy();
-                      header('Location: index.php?page=login');
-                      exit();
-                    }
-                    ?>
-                  </form>
-                </div>
-              </div>
-
-            <?php elseif ($_SESSION['user'] == "viewer"): ?><!----- Header when logged in as a viewer ----->
               <li><a class="header-nav-link" href="index.php?page=viewCVs" title="Go to view CVs">View CVs</a></li>
               <div class="user-info">
                 <ion-icon class="user-icon" name="person-circle"></ion-icon>
@@ -82,6 +61,7 @@
                   </form>
                 </div>
               </div>
+
             <?php else: ?> <!----- Header when not logged in------>
               <li><a class="header-nav-link" href="index.php?page=login" title="Go to login page">Login</a></li>
               <li>
