@@ -293,7 +293,7 @@
       </div>
 
       <div class="accordion-item">
-        <p class="accordion-number">03</p>
+        <p class="accordion-number">04</p>
         <p class="accordion-text">What happens when I upload a PDF version of my CV?</p>
         <ion-icon name="chevron-forward-outline" class="accordion-chevron-forward"></ion-icon>
         <div class="accordion-hidden-box">
@@ -382,6 +382,30 @@
       </nav>
     </div>
   </footer>
+
+  <!-- To be seperated  -->
+  <script>
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+      const icon = item.querySelector('ion-icon');
+      icon.addEventListener('click', () => {
+        // Toggle 'open' class on accordion item
+        item.classList.toggle('open');
+
+        // Toggle icon attributes
+        if (item.classList.contains('open')) {
+          icon.setAttribute('name', 'chevron-down-outline');
+          icon.classList.remove('accordion-chevron-forward');
+          icon.classList.add('accordion-chevron-down');
+        } else {
+          icon.setAttribute('name', 'chevron-forward-outline');
+          icon.classList.remove('accordion-chevron-down');
+          icon.classList.add('accordion-chevron-forward');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

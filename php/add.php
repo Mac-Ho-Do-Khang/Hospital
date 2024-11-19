@@ -63,16 +63,24 @@
         </header>
     </div>
 
-    <div class="add-tabs">
+    <!-- <div class="add-tabs">
         <button class="add-tablink" onclick="openPage('CV-create', this)" id="defaultOpen">Create a CV</button>
         <button class="add-tablink" onclick="openPage('CV-upload', this)">Upload a CV</button>
-    </div>
+    </div> -->
 
     <section id="CV-create" class="add-tabcontent">
 
         <div class="CV-form-container">
             <form class="CV-form">
                 <div class="CV-form-title">Primary information</div>
+                <!-- Objective -->
+                <div class="CV-form-part Objective">
+                    <div class="CV-form-icon-label">
+                        <ion-icon name="accessibility"></ion-icon>
+                        <label>Objective</label>
+                    </div>
+                    <textarea type="text" placeholder="Lorem ipsum dolor sit amet..." required></textarea>
+                </div>
                 <!-- Name -->
                 <div class="CV-form-part Name">
                     <div class="CV-form-icon-label">
@@ -103,23 +111,44 @@
                         <ion-icon name="call"></ion-icon>
                         <label>Phone Number</label>
                     </div>
-                    <input type="text" placeholder="919-263-1770" required>
+                    <div id="phones-container">
+                        <div class="with-trashbin">
+                            <div class="phone-container">
+                                <input type="text" placeholder="919-263-1770" required>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="add-button-wrapper">
+                        <button type="button" class="add-button" id="add-phone-button">+</button>
+                    </div>
                 </div>
                 <!-- Address -->
-                <div class="CV-form-part Address">
+                <div class="CV-form-part Addresses">
                     <div class="CV-form-icon-label">
                         <ion-icon name="location"></ion-icon>
                         <label>Address</label>
                     </div>
-                    <input type="text" placeholder="123 Any Street, Anywhere City" required>
-                </div>
-                <!-- About -->
-                <div class="CV-form-part About">
-                    <div class="CV-form-icon-label">
-                        <ion-icon name="accessibility"></ion-icon>
-                        <label>About you</label>
+                    <div id="addresses-container">
+                        <div class="with-trashbin">
+                            <div class="address-container">
+                                <input type="text" placeholder="123 Any Street, Anywhere City" required>
+                                <select id="country" name="country" onchange="fetchStates()">
+                                    <option value="">---Country---</option>
+                                </select>
+                                <select id="state" name="state" onchange="fetchCities()">
+                                    <option value="">---State---</option>
+                                </select>
+                                <select id="city" name="city" onchange="showMap()">
+                                    <option value="">---City---</option>
+                                </select>
+                            </div>
+
+                        </div>
                     </div>
-                    <textarea type="text" placeholder="Lorem ipsum dolor sit amet..." required></textarea>
+                    <div class="add-button-wrapper">
+                        <button type="button" class="add-button" id="add-address-button">+</button>
+                    </div>
                 </div>
                 <!-- Skills -->
                 <div class="CV-form-part Skills">
@@ -128,27 +157,16 @@
                         <label>Skills</label>
                     </div>
                     <div id="skills-container">
-                        <div class="skill-container">
-                            <input type="text" name="field1" placeholder="Your skill">
+                        <div class="with-trashbin">
+                            <div class="skill-container">
+                                <input type="text" name="field" placeholder="Your skill">
+                                <input type="number" name="start" placeholder="Years of experience" min=1 required>
+                            </div>
+
                         </div>
                     </div>
                     <div class="add-button-wrapper">
                         <button type="button" class="add-button" id="add-skill-button">+</button>
-                    </div>
-                </div>
-                <!-- Languages -->
-                <div class="CV-form-part Languages">
-                    <div class="CV-form-icon-label">
-                        <ion-icon name="language"></ion-icon>
-                        <label>Languages</label>
-                    </div>
-                    <div id="languages-container">
-                        <div class="language-container">
-                            <input type="text" name="field1" placeholder="Your language">
-                        </div>
-                    </div>
-                    <div class="add-button-wrapper">
-                        <button type="button" class="add-button" id="add-language-button">+</button>
                     </div>
                 </div>
                 <!-- Educations -->
@@ -158,14 +176,17 @@
                         <label>Education</label>
                     </div>
                     <div id="educations-container">
-                        <div class="education-container">
-                            <input type="text" name="university" placeholder="University Name" required>
-                            <input type="text" name="degree" placeholder="Degree" required>
-                            <input type="text" name="gpa" placeholder="GPA" required>
-                            <div class="year-container">
-                                <input type="number" name="start" placeholder="Start Year" required>
-                                <input type="number" name="end" placeholder="End Year" required>
+                        <div class="with-trashbin">
+                            <div class="education-container">
+                                <input type="text" name="university" placeholder="University Name" required>
+                                <input type="text" name="degree" placeholder="Degree" required>
+                                <input type="text" name="gpa" placeholder="GPA" required>
+                                <div class="year-container">
+                                    <input type="number" name="start" placeholder="Start Year" min=1980 max=2024 required>
+                                    <input type="number" name="end" placeholder="End Year" min=1980 max=2024 required>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="add-button-wrapper">
@@ -179,14 +200,17 @@
                         <label>Experience</label>
                     </div>
                     <div id="experiences-container">
-                        <div class="experience-container">
-                            <input type="text" name="job" placeholder="Job Title" required>
-                            <input type="text" name="company" placeholder="Company" required>
-                            <div class="year-container">
-                                <input type="number" name="start" placeholder="Start Year" required>
-                                <input type="number" name="end" placeholder="End Year" required>
+                        <div class="with-trashbin">
+                            <div class="experience-container">
+                                <input type="text" name="job" placeholder="Job Title" required>
+                                <input type="text" name="company" placeholder="Company" required>
+                                <div class="year-container">
+                                    <input type="number" name="start" min=1980 max=2024 placeholder="Start Year" required>
+                                    <input type="number" name="end" min=1980 max=2024 placeholder="End Year" required>
+                                </div>
+                                <textarea name="description" placeholder="Description of responsibilities" rows="3" required></textarea>
                             </div>
-                            <textarea name="description" placeholder="Description of responsibilities" rows="3" required></textarea>
+
                         </div>
                     </div>
                     <div class="add-button-wrapper">
@@ -218,14 +242,18 @@
                         <label>Who can view your CV? (Optional)</label>
                     </div>
                     <div id="allowers-container">
-                        <div class="allower-container">
-                            <input type="text" name="field" placeholder="Email...">
+                        <div class="with-trashbin">
+                            <div class="allower-container">
+                                <input type="text" name="field" placeholder="Email...">
+                            </div>
+
                         </div>
                     </div>
                     <div class="add-button-wrapper">
                         <button type="button" class="add-button" id="add-allower-button">+</button>
                     </div>
                 </div>
+
                 <!-- Error prompt -->
                 <div class="CV-form-part form-error-notify">
                     <p>Prompt error message here.</p>
@@ -253,10 +281,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -268,10 +296,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -283,24 +311,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -376,10 +411,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -391,10 +426,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -406,24 +441,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -499,10 +541,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -514,10 +556,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -529,24 +571,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -622,10 +671,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -637,10 +686,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -652,24 +701,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -745,10 +801,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -760,10 +816,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -775,24 +831,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -868,10 +931,10 @@
                         </div>
 
                         <div class="CV-personal-information">
-                            <div class="about">
+                            <div class="objective">
                                 <div class="CV-icon-title">
                                     <ion-icon name="accessibility"></ion-icon>
-                                    <span class="title">About me</span>
+                                    <span class="title">Objective</span>
                                 </div>
                                 <div class="details">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia expedita, aut et illum quas atque impedit ad ex dolore voluptatem. Corrupti, iusto praesentium!
@@ -883,10 +946,10 @@
                                     <span class="title">Contact</span>
                                 </div>
                                 <div class="details">
-                                    <ion-icon name="call"></ion-icon>
-                                    <p>+919-263-1770</p>
                                     <ion-icon name="mail"></ion-icon>
                                     <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
                                     <ion-icon name="location"></ion-icon>
                                     <p>123 Any Street, Anywhere City</p>
                                 </div>
@@ -898,24 +961,31 @@
                                 </div>
                                 <div class="details">
                                     <ul>
-                                        <li>Web design</li>
-                                        <li>Branding</li>
-                                        <li>SEO</li>
-                                        <li>Marketing</li>
+                                        <li>Web design &mdash; 4 years</li>
+                                        <li>Branding &mdash; 2 years</li>
+                                        <li>Marketing &mdash; 2 years</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="languages">
+                            <div class="reference">
                                 <div class="CV-icon-title">
-                                    <ion-icon name="language"></ion-icon>
-                                    <span class="title">Languages</span>
+                                    <ion-icon name="attach"></ion-icon>
+                                    <span class="title">Reference</span>
                                 </div>
                                 <div class="details">
-                                    <ul>
-                                        <li>English</li>
-                                        <li>Mandarin</li>
-                                        <li>German</li>
-                                    </ul>
+                                    <ion-icon name="mail"></ion-icon>
+                                    <p>schumacher@example.com</p>
+                                    <ion-icon name="call"></ion-icon>
+                                    <p>+919-263-1770</p>
+                                </div>
+                            </div>
+                            <div class="addition">
+                                <div class="CV-icon-title">
+                                    <ion-icon name="information-circle"></ion-icon>
+                                    <span class="title">Additional information</span>
+                                </div>
+                                <div class="details">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nemo ullam labore facere vero ipsa.
                                 </div>
                             </div>
                         </div>
@@ -980,6 +1050,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -1002,7 +1073,7 @@
 
     </section>
 
-    <section id="CV-upload" class="add-tabcontent">
+    <section id="CV-upload" class="add-tabcontent" style="display:none;">
         <div class="CV-upload-form-container">
             <form action="index.php?page=login" class="CV-upload-form CV-form">
                 <div class="CV-form-title">Upload file</div>
@@ -1045,7 +1116,6 @@
                 </div>
             </form>
         </div>
-
     </section>
 
     <footer>
@@ -1154,26 +1224,118 @@
         document.getElementById("defaultOpen").click();
     </script>
 
+    <!-- Dynamically add phones  -->
+    <script>
+        const add_phone_button = document.getElementById('add-phone-button');
+        const phones_container = document.getElementById('phones-container');
+
+        add_phone_button.addEventListener('click', () => {
+            const newInputWrapper = document.createElement('div');
+            newInputWrapper.classList.add('with-trashbin');
+            const phoneContainer = document.createElement('div');
+            phoneContainer.classList.add('phone-container');
+
+            const phoneInput = document.createElement('input');
+            phoneInput.type = 'text';
+            phoneInput.placeholder = '919-263-1770';
+            phoneInput.required = true;
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                phones_container.removeChild(newInputWrapper);
+            });
+
+            // Append input and trash icon to their respective containers
+            phoneContainer.appendChild(phoneInput);
+            newInputWrapper.appendChild(phoneContainer);
+            newInputWrapper.appendChild(trashIcon);
+            // Append the new input wrapper to the phones container
+            phones_container.appendChild(newInputWrapper);
+        });
+    </script>
+    <!-- Dynamically add addresses  -->
+    <script>
+        const add_address_button = document.getElementById('add-address-button');
+        const addresses_container = document.getElementById('addresses-container');
+
+        add_address_button.addEventListener('click', () => {
+            const newAddressWrapper = document.createElement('div');
+            newAddressWrapper.classList.add('with-trashbin');
+            const addressContainer = document.createElement('div');
+            addressContainer.classList.add('address-container');
+
+            const addressInput = document.createElement('input');
+            addressInput.type = 'text';
+            addressInput.placeholder = '123 Any Street, Anywhere City';
+            addressInput.required = true;
+
+            const countrySelect = document.createElement('select');
+            countrySelect.name = 'country';
+            // countrySelect.onchange = fetchStates;
+            countrySelect.innerHTML = `<option value="">---Country---</option>`;
+
+            const stateSelect = document.createElement('select');
+            stateSelect.name = 'state';
+            // stateSelect.onchange = fetchCities;
+            stateSelect.innerHTML = `<option value="">---State---</option>`;
+
+            const citySelect = document.createElement('select');
+            citySelect.name = 'city';
+            // citySelect.onchange = showMap;
+            citySelect.innerHTML = `<option value="">---City---</option>`;
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                addresses_container.removeChild(newAddressWrapper);
+            });
+
+            // Append all elements to their respective containers
+            addressContainer.appendChild(addressInput);
+            addressContainer.appendChild(countrySelect);
+            addressContainer.appendChild(stateSelect);
+            addressContainer.appendChild(citySelect);
+            newAddressWrapper.appendChild(addressContainer);
+            newAddressWrapper.appendChild(trashIcon);
+            // Append the new address wrapper to the addresses container
+            addresses_container.appendChild(newAddressWrapper);
+        });
+    </script>
     <!-- Dynamically add skills  -->
     <script>
         const add_skill_button = document.getElementById('add-skill-button');
         const skills_container = document.getElementById('skills-container');
+
         add_skill_button.addEventListener('click', () => {
-            const newInputDiv = document.createElement('div');
-            newInputDiv.classList.add('skill-container');
-            newInputDiv.innerHTML = `<input type="text" name="field" placeholder="Your skill">`;
-            skills_container.appendChild(newInputDiv);
-        });
-    </script>
-    <!-- Dynamically add languages  -->
-    <script>
-        const add_language_button = document.getElementById('add-language-button');
-        const languages_container = document.getElementById('languages-container');
-        add_language_button.addEventListener('click', () => {
-            const newInputDiv = document.createElement('div');
-            newInputDiv.classList.add('language-container');
-            newInputDiv.innerHTML = `<input type="text" name="field" placeholder="Your language">`;
-            languages_container.appendChild(newInputDiv);
+            const newSkillWrapper = document.createElement('div');
+            newSkillWrapper.classList.add('with-trashbin');
+            const skillContainer = document.createElement('div');
+            skillContainer.classList.add('skill-container');
+
+            const skillInput = document.createElement('input');
+            skillInput.type = 'text';
+            skillInput.name = 'field';
+            skillInput.placeholder = 'Your skill';
+
+            const experienceInput = document.createElement('input');
+            experienceInput.type = 'number';
+            experienceInput.min = 1;
+            experienceInput.name = 'start';
+            experienceInput.placeholder = 'Years of experience';
+            experienceInput.required = true;
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                skills_container.removeChild(newSkillWrapper);
+            });
+
+            skillContainer.appendChild(skillInput);
+            skillContainer.appendChild(experienceInput);
+            newSkillWrapper.appendChild(skillContainer);
+            newSkillWrapper.appendChild(trashIcon);
+            skills_container.appendChild(newSkillWrapper);
         });
     </script>
     <!-- Dynamically add educations  -->
@@ -1182,18 +1344,65 @@
         const educations_container = document.getElementById('educations-container');
 
         add_education_button.addEventListener('click', () => {
-            const newEducationDiv = document.createElement('div');
-            newEducationDiv.classList.add('education-container');
-            newEducationDiv.innerHTML = `
-        <input type="text" name="university" placeholder="University Name" required>
-        <input type="text" name="degree" placeholder="Degree" required>
-        <input type="text" name="gpa" placeholder="GPA" required>
-        <div class="year-container">
-            <input type="number" name="startYear" placeholder="Start Year" required>
-            <input type="number" name="endYear" placeholder="End Year" required>
-        </div>
-    `;
-            educations_container.appendChild(newEducationDiv);
+            const newEducationWrapper = document.createElement('div');
+            newEducationWrapper.classList.add('with-trashbin');
+            const educationContainer = document.createElement('div');
+            educationContainer.classList.add('education-container');
+
+            const universityInput = document.createElement('input');
+            universityInput.type = 'text';
+            universityInput.name = 'university';
+            universityInput.placeholder = 'University Name';
+            universityInput.required = true;
+
+            const degreeInput = document.createElement('input');
+            degreeInput.type = 'text';
+            degreeInput.name = 'degree';
+            degreeInput.placeholder = 'Degree';
+            degreeInput.required = true;
+
+            const gpaInput = document.createElement('input');
+            gpaInput.type = 'text';
+            gpaInput.name = 'gpa';
+            gpaInput.placeholder = 'GPA';
+            gpaInput.required = true;
+
+            const yearContainer = document.createElement('div');
+            yearContainer.classList.add('year-container');
+
+            const startYearInput = document.createElement('input');
+            startYearInput.type = 'number';
+            startYearInput.name = 'start';
+            startYearInput.min = 1980;
+            startYearInput.max = 2024;
+            startYearInput.placeholder = 'Start Year';
+            startYearInput.required = true;
+
+            const endYearInput = document.createElement('input');
+            endYearInput.type = 'number';
+            endYearInput.name = 'end';
+            endYearInput.min = 1980;
+            endYearInput.max = 2024;
+            endYearInput.placeholder = 'End Year';
+            endYearInput.required = true;
+
+            yearContainer.appendChild(startYearInput);
+            yearContainer.appendChild(endYearInput);
+
+            educationContainer.appendChild(universityInput);
+            educationContainer.appendChild(degreeInput);
+            educationContainer.appendChild(gpaInput);
+            educationContainer.appendChild(yearContainer);
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                educations_container.removeChild(newEducationWrapper);
+            });
+
+            newEducationWrapper.appendChild(educationContainer);
+            newEducationWrapper.appendChild(trashIcon);
+            educations_container.appendChild(newEducationWrapper);
         });
     </script>
     <!-- Dynamically add experiences  -->
@@ -1202,29 +1411,94 @@
         const experiences_container = document.getElementById('experiences-container');
 
         add_experience_button.addEventListener('click', () => {
-            const newExperienceDiv = document.createElement('div');
-            newExperienceDiv.classList.add('experience-container');
-            newExperienceDiv.innerHTML = `
-        <input type="text" name="jobTitle" placeholder="Job Title" required>
-        <input type="text" name="company" placeholder="Company" required>
-        <div class="year-container">
-            <input type="number" name="startYear" placeholder="Start Year" required>
-            <input type="number" name="endYear" placeholder="End Year" required>
-        </div>
-        <textarea name="description" placeholder="Description of responsibilities" rows="3" required></textarea>
-    `;
-            experiences_container.appendChild(newExperienceDiv);
+            const newExperienceWrapper = document.createElement('div');
+            newExperienceWrapper.classList.add('with-trashbin');
+            const experienceContainer = document.createElement('div');
+            experienceContainer.classList.add('experience-container');
+
+            const jobInput = document.createElement('input');
+            jobInput.type = 'text';
+            jobInput.name = 'job';
+            jobInput.placeholder = 'Job Title';
+            jobInput.required = true;
+
+            const companyInput = document.createElement('input');
+            companyInput.type = 'text';
+            companyInput.name = 'company';
+            companyInput.placeholder = 'Company';
+            companyInput.required = true;
+
+            const yearContainer = document.createElement('div');
+            yearContainer.classList.add('year-container');
+
+            const startYearInput = document.createElement('input');
+            startYearInput.type = 'number';
+            startYearInput.name = 'start';
+            startYearInput.placeholder = 'Start Year';
+            startYearInput.min = 1980;
+            startYearInput.max = 2024;
+            startYearInput.required = true;
+
+            const endYearInput = document.createElement('input');
+            endYearInput.type = 'number';
+            endYearInput.name = 'end';
+            endYearInput.placeholder = 'End Year';
+            endYearInput.min = 1980;
+            endYearInput.max = 2024;
+            endYearInput.required = true;
+
+            yearContainer.appendChild(startYearInput);
+            yearContainer.appendChild(endYearInput);
+
+            const descriptionTextarea = document.createElement('textarea');
+            descriptionTextarea.name = 'description';
+            descriptionTextarea.placeholder = 'Description of responsibilities';
+            descriptionTextarea.rows = 3;
+            descriptionTextarea.required = true;
+
+            experienceContainer.appendChild(jobInput);
+            experienceContainer.appendChild(companyInput);
+            experienceContainer.appendChild(yearContainer);
+            experienceContainer.appendChild(descriptionTextarea);
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                experiences_container.removeChild(newExperienceWrapper);
+            });
+
+            newExperienceWrapper.appendChild(experienceContainer);
+            newExperienceWrapper.appendChild(trashIcon);
+            experiences_container.appendChild(newExperienceWrapper);
         });
     </script>
     <!-- Dynamically add allowers  -->
     <script>
         const add_allower_button = document.getElementById('add-allower-button');
         const allowers_container = document.getElementById('allowers-container');
+
         add_allower_button.addEventListener('click', () => {
-            const newInputDiv = document.createElement('div');
-            newInputDiv.classList.add('allower-container');
-            newInputDiv.innerHTML = `<input type="text" name="field" placeholder="The person's email">`;
-            allowers_container.appendChild(newInputDiv);
+            const newAllowerWrapper = document.createElement('div');
+            newAllowerWrapper.classList.add('with-trashbin');
+            const allowerContainer = document.createElement('div');
+            allowerContainer.classList.add('allower-container');
+
+            const emailInput = document.createElement('input');
+            emailInput.type = 'text';
+            emailInput.name = 'field';
+            emailInput.placeholder = 'Email...';
+
+            allowerContainer.appendChild(emailInput);
+
+            const trashIcon = document.createElement('ion-icon');
+            trashIcon.name = 'trash';
+            trashIcon.addEventListener('click', () => {
+                allowers_container.removeChild(newAllowerWrapper);
+            });
+
+            newAllowerWrapper.appendChild(allowerContainer);
+            newAllowerWrapper.appendChild(trashIcon);
+            allowers_container.appendChild(newAllowerWrapper);
         });
     </script>
 

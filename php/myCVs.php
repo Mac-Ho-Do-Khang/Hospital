@@ -37,7 +37,7 @@
         <nav class="header-nav">
             <ul class="header-nav-list">
                 <li><a class="header-nav-link" href="index.php?page=home" title="Return to home page">Home</a></li>
-                <li><a class="header-nav-link" href="index.php?page=CVs" title="Go to view CVs">My CVs</a></li>
+                <li><a class="header-nav-link" href="index.php?page=myCVs" title="Go to view CVs">My CVs</a></li>
                 <li><a class="header-nav-link" href="index.php?page=add" title="Go to add CVs">Add CV</a></li>
                 <div class="user-info">
                     <ion-icon class="user-icon" name="person-circle"></ion-icon>

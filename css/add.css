@@ -29,8 +29,8 @@
 
 /* ------------- CV Form ------------- */
 .CV-form-container {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   padding: 0 12rem;
 }
 .CV-form {
@@ -84,6 +84,7 @@
 }
 
 .CV-form input,
+.CV-form select,
 .CV-form textarea {
   width: 100%;
   padding: 1.2rem;
@@ -96,12 +97,32 @@
   border-radius: 1rem;
   color: #0d1b2a;
 }
-.About,
+.Objective,
 .Educations,
-.Experiences {
+.Experiences,
+.Addresses {
   grid-column: 1/-1;
 }
 
+.with-trashbin {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.with-trashbin > :first-child {
+  flex-grow: 1;
+}
+ion-icon[name="trash"] {
+  color: #e63947ae;
+}
+ion-icon[name="trash"]:hover {
+  color: #e63947;
+  cursor: pointer;
+}
+
+.skill-container,
+.address-container,
 .education-container,
 .experience-container {
   border: 2px solid #415a7793;
@@ -111,23 +132,37 @@
   display: flex;
   gap: 2rem;
 }
+
+.skill-container input[type="text"] {
+  flex-basis: 250%;
+}
+.address-container input[type="text"] {
+  flex-basis: 250%;
+}
+
 .education-container input,
 .experience-container input,
 .education-container textarea,
 .experience-container textarea {
   margin: 0;
 }
-input[name="end"] {
-  margin-top: 0.5rem;
-}
 .education-container input[name="gpa"] {
   flex-basis: 25%;
+}
+.experience-container .year-container {
+  flex-basis: 60%;
 }
 .education-container .year-container {
   flex-basis: 40%;
 }
 .experience-container textarea[name="description"] {
   flex-basis: 150%;
+}
+.experience-container .year-container,
+.education-container .year-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .form-error-notify {
@@ -177,7 +212,7 @@ input[name="end"] {
   border-radius: 1.2rem;
   box-shadow: 0 1rem 1.2rem 0.5rem rgba(0, 0, 0, 0.1);
 }
-.CV-view ion-icon {
+.CV-view .CV-icon-title ion-icon {
   transform: translateY(0.6rem);
 }
 
@@ -237,11 +272,11 @@ input[name="end"] {
 }
 .CV-view .contact,
 .CV-view .skills,
-.CV-view .languages {
+.CV-view .reference {
   padding: 0 1rem;
 }
 
-.CV-personal-information .about .details {
+.CV-personal-information .objective .details {
   text-align: justify;
 }
 
@@ -266,12 +301,16 @@ input[name="end"] {
   padding-left: 0.7rem;
   margin-bottom: 0.7rem;
 }
+.CV-personal-information li:last-child {
+  margin-bottom: 0;
+}
 
+.CV-view .reference .details,
 .CV-view .contact .details {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 1.5rem;
-  row-gap: 1.4rem;
+  row-gap: 1rem;
   margin-left: 0.7rem;
 }
 

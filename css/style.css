@@ -672,6 +672,10 @@ strong {
   height: 2.4rem;
   color: #7c7f85;
 }
+.accordion-chevron-forward:hover,
+.accordion-chevron-down:hover {
+  cursor: pointer;
+}
 
 .accordion-hidden-box {
   grid-column: 2;
