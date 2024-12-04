@@ -8,16 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
     <link rel="icon" href="content/img/fev-icon.png" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/register.css" />
-    <script
-        defer
-        src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-    <!-- <script defer src="script.js"></script> -->
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
     <title>CVForge - Register</title>
 </head>
 
@@ -47,51 +42,80 @@
                         Take the first step toward your dream job. It's free and easy. Sign up in minutes. Showcase your skills for a lifetime.
                     </p>
 
+                    <!-- Registration Form -->
                     <form class="cta-form" name="form" method="post">
-                        <div
-                            class="grid-container"
-                            style="--column: 2; --c-gap: 3.2rem; --r-gap: 2.4rem">
+                        <div class="grid-container" style="--column: 2; --c-gap: 3.2rem; --r-gap: 2.4rem">
                             <div>
                                 <label for="email"> Email:</label>
-                                <input
-                                    name="mail"
-                                    type="email"
-                                    id="email"
-                                    placeholder="CVForge@example.com"
-                                    required />
+                                <input name="mail" type="email" id="email" placeholder="CVForge@example.com" required />
                             </div>
                             <div>
                                 <label for="password"> Password:</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    id="password"
-                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-                                    required>
+                                <input name="password" type="password" id="password" placeholder="************" required>
                             </div>
                             <div>
                                 <label for="name"> Full name:</label>
-                                <input name="name" type="text" id="name"
-                                    placeholder="CVForge is here" required />
+                                <input name="name" type="text" id="name" placeholder="CVForge is here" required />
                             </div>
                             <div>
                                 <label for="where">Select your role</label>
                                 <select name="select" id="where" required>
                                     <option value="">Choose one</option>
-                                    <option value="1">Job seeker</option>
-                                    <option value="2">Viewer</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Employee</option>
+                                    <option value="3">Patient</option>
                                 </select>
                             </div>
                             <button class="btn btn-full">Sign up</button>
                             <div class="register-error">
-                                <p>Prompt error message here</p>
+                                <?php
+                                include("database.php");
+
+                                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                    $fullname = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                                    $email = filter_input(INPUT_POST, "mail", FILTER_SANITIZE_EMAIL);
+                                    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                                    $role = filter_input(INPUT_POST, "select", FILTER_SANITIZE_NUMBER_INT);
+
+                                    // Check for valid role
+                                    $roles = ['1' => 'Admin', '2' => 'Employee', '3' => 'Patient'];
+                                    $role_name = $roles[$role] ?? null;
+
+                                    if (!$role_name) {
+                                        echo "Invalid role selected.";
+                                    } elseif (empty($fullname) || empty($email) || empty($password)) {
+                                        echo "All fields are required.";
+                                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                        echo "Invalid email format.";
+                                    } else {
+                                        // Check if email already exists
+                                        $sql = "SELECT * FROM $tb_users WHERE email = '$email'";
+                                        $result = mysqli_query($connection, $sql);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            echo "Email already used.";
+                                        } else {
+                                            // Insert user into the database
+                                            $password_hash = password_hash($password, PASSWORD_BCRYPT);
+                                            $sql = "INSERT INTO $tb_users (full_name, email, password_hash, role, created_at) 
+                                                    VALUES ('$fullname', '$email', '$password_hash', '$role_name', NOW())";
+
+                                            if (mysqli_query($connection, $sql)) {
+                                                echo "Sign up successfully. You can now login.";
+                                            } else {
+                                                echo "Error: " . mysqli_error($connection);
+                                            }
+                                        }
+                                    }
+                                }
+                                mysqli_close($connection);
+                                ?>
                             </div>
+                        </div>
                     </form>
-
                 </div>
+                <div class="cta-img"></div>
             </div>
-            <div class="cta-img"></div>
-
         </div>
     </section>
 

@@ -1,3 +1,6 @@
+<?php
+session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +78,7 @@
             <!-- <div class="shadow"></div> -->
         </div>
 
-        <form>
+        <form action="php/login_processing.php" method="post">
             <div class="container login">
                 <label for="uname"><b>Username</b></label>
                 <input class="email" id="email" type="text" placeholder="Enter Email" name="email" required>
@@ -89,7 +92,14 @@
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
-                    <div class="login-notify">Invalid login credentials</div>
+                    <div class="login-notify">
+                        <?php
+                        if (isset($_SESSION['login_message'])) {
+                            echo $_SESSION['login_message'];
+                            unset($_SESSION['login_message']);  // Clear the message after displaying it
+                        }
+                        ?>
+                    </div>
                 </div>
         </form>
         </div>

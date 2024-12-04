@@ -1,9 +1,9 @@
 /*
 ---------- COLOR ------------
-Pallete: https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-eaeae8
-- Primary: #1B263B
-- Tints  : #415A77     #778DA9
-- Shades : #0D1B2A
+Pallete: https://coolors.co/palette/081C15-1B4332-2D6A4F-778da9-eaeae8
+- Primary: #1B4332
+- Tints  : #2D6A4F     #778DA9
+- Shades : #081C15
 - Greys  : #eaeae8
 */
 html {
@@ -22,7 +22,7 @@ body {
   font-family: "Rubik", sans-serif;
   line-height: 1;
   font-weight: 400;
-  color: #0d1b2a;
+  color: #081c15;
   background-color: #eaeae8;
   overflow-x: hidden;
 }
@@ -32,7 +32,7 @@ section {
 }
 .link:link,
 .link:visited {
-  color: #1b263b;
+  color: #1b4332;
   text-decoration: none;
   display: inline-block;
   border-bottom: 0.1rem solid currentColor;
@@ -126,7 +126,7 @@ section {
   display: block;
   font-size: 1.6rem;
   font-weight: 500;
-  color: #415a77;
+  color: #2d6a4f;
   text-transform: uppercase;
   margin-bottom: 1.6rem;
   letter-spacing: 0.2rem;
@@ -139,8 +139,7 @@ section {
   height: 100vh;
   position: relative;
 
-  background-image: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)),
-    url("../content/img/hero4.png");
+  background-image: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url("../content/img/hero1.png");
   background-size: cover;
   color: #fff;
   padding: 0;
@@ -177,7 +176,7 @@ section {
   text-decoration: none;
   border-radius: 1.2rem;
   cursor: pointer;
-  background-color: #1b263b;
+  background-color: #1b4332;
   color: #eaeae8;
   position: relative;
   transition: all 500ms;
@@ -185,7 +184,7 @@ section {
 .gradient-box-shadow:hover {
   background-color: transparent;
   background: none;
-  color: #0d1b2a;
+  color: #081c15;
 }
 
 .gradient-box-shadow::before {
@@ -214,7 +213,7 @@ header {
   position: relative;
 }
 .header .logo {
-  height: 8rem;
+  height: 25rem;
 }
 /* -------------- Navigation -------------- */
 .header-nav-list {
@@ -229,33 +228,33 @@ header {
   text-decoration: none;
   font-weight: 500;
   font-size: 2.2rem;
-  color: #0d1b2a;
+  color: #081c15;
   transition: all 300ms;
 }
 .header-nav-list a:active,
 .header-nav-list a:hover {
-  color: #415a77;
+  color: #2d6a4f;
 }
 .header-nav-list a.call-to-action:link,
 .header-nav-list a.call-to-action:visited {
-  background-color: #0d1b2a;
+  background-color: #081c15;
   color: #eaeae8;
   padding: 1.2rem 2.4rem;
   border-radius: 1rem;
 }
 .header-nav-list a.call-to-action:active,
 .header-nav-list a.call-to-action:hover {
-  background-color: #415a77;
+  background-color: #2d6a4f;
 }
 
 .user-icon {
   height: 4rem;
   width: 4rem;
-  color: #0d1b2a;
+  color: #081c15;
   transition: all 300ms;
 }
 .user-icon:hover {
-  color: #415a77;
+  color: #2d6a4f;
   transform: translateY(-0.4rem);
   cursor: pointer;
 }
@@ -282,8 +281,8 @@ header {
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  border: 2px solid #1b263b;
-  background-color: #1b263b;
+  border: 2px solid #1b4332;
+  background-color: #1b4332;
   color: #eaeae8;
   transition: 300ms;
   font-weight: bold;
@@ -291,13 +290,13 @@ header {
 }
 .logout-btn:hover {
   background-color: transparent;
-  color: #1b263b;
+  color: #1b4332;
 }
 /* --------------------------------------
 -------------- DARK HEADER --------------
 ----------------------------------------- */
 .dark header {
-  background-color: #0d1b2a;
+  background-color: #081c15;
 }
 .dark .header-nav-list a:link,
 .dark .header-nav-list a:visited {
@@ -312,7 +311,7 @@ header {
 
 .dark .header-nav-list a.call-to-action:link,
 .dark .header-nav-list a.call-to-action:visited {
-  color: #0d1b2a;
+  color: #081c15;
   background-color: #eaeae8;
   padding: 1.2rem 2.4rem;
   border-radius: 1rem;
@@ -340,7 +339,7 @@ header {
 }
 .dark .logout-btn {
   background-color: #eaeae8;
-  color: #0d1b2a;
+  color: #081c15;
 }
 
 /* -----------------------------------------
@@ -359,7 +358,7 @@ header {
 .btn-full,
 .btn-full:link,
 .btn-full:visited {
-  background: linear-gradient(90deg, hsla(211, 53%, 11%, 1) 0%, hsla(212, 29%, 36%, 1) 100%);
+  background: linear-gradient(90deg, hsla(155, 43%, 18%, 1) 0%, hsla(153, 40%, 30%, 1) 100%);
   color: #eaeae8;
   border: none;
   font-weight: 600;
@@ -369,8 +368,8 @@ header {
 .btn-full:hover {
   background-color: transparent;
   background: none;
-  box-shadow: inset 0 0 0 0.3rem #0d1b2a;
-  color: #0d1b2a;
+  box-shadow: inset 0 0 0 0.3rem #1b4332;
+  color: #1b4332;
 }
 .btn-outline,
 .btn-outline:link,
@@ -378,7 +377,7 @@ header {
   border: none;
   font-family: "Rubik", sans-serif;
   background-color: #778da9;
-  color: #0d1b2a;
+  color: #081c15;
   font-weight: 500;
 }
 .btn-outline:active,
@@ -417,7 +416,7 @@ header {
 }
 .delivered-text span {
   font-weight: 600;
-  color: #415a77;
+  color: #2d6a4f;
 }
 
 /* ---------------------------------------
@@ -524,7 +523,7 @@ strong {
 .CV-icon {
   width: 3rem;
   height: 3rem;
-  color: #415a77;
+  color: #2d6a4f;
   margin-left: 0.1rem;
   justify-self: stretch;
 }
@@ -538,7 +537,7 @@ strong {
 ---------- TESTIMONIALS SECTION ----------
 ------------------------------------------ */
 .testimonial-container {
-  background-color: #0d1b2a;
+  background-color: #081c15;
   padding-left: 22rem;
   padding-right: 22rem;
 }
@@ -553,7 +552,7 @@ strong {
 }
 .testimonial-part {
   border-radius: 1.2rem;
-  background-color: #1b263b;
+  background-color: #1b4332;
   padding: 3rem;
   display: grid;
   grid-template-columns: auto auto;
@@ -573,7 +572,7 @@ strong {
 .testimonial-first-text {
   grid-column: 2/-1;
   border-radius: 1.2rem;
-  background-color: #1b263b;
+  background-color: #1b4332;
   padding: 6.4rem 4.8rem;
   display: flex;
   flex-direction: column;
@@ -649,10 +648,10 @@ strong {
   align-items: center;
 }
 .accordion-number {
-  color: #0d1b2a;
+  color: #081c15;
 }
 .accordion-text {
-  color: #415a77;
+  color: #2d6a4f;
 }
 
 .accordion-number,
@@ -665,7 +664,7 @@ strong {
 .accordion-chevron-down {
   width: 2.4rem;
   height: 2.4rem;
-  color: #415a77;
+  color: #2d6a4f;
 }
 .accordion-chevron-forward {
   width: 2.4rem;
@@ -688,7 +687,7 @@ strong {
 }
 
 .accordion-hidden-box ul {
-  color: #1b263bc0;
+  color: #1b4332c0;
   margin-left: 2rem;
 
   display: flex;
@@ -698,7 +697,7 @@ strong {
 
 /* OPEN STATE */
 .open {
-  border-top: 0.4rem solid #415a77;
+  border-top: 0.4rem solid #2d6a4f;
 }
 
 .open .accordion-hidden-box {
@@ -707,14 +706,14 @@ strong {
 
 .open .accordion-number,
 .open .accordion-text {
-  color: #415a77;
+  color: #2d6a4f;
 }
 /* ---------------------------------
 -------------- FOOTER --------------
 ------------------------------------ */
 footer {
   padding: 9.6rem 9.6rem 6.4rem 9.6rem;
-  background-color: #0d1b2a;
+  background-color: #081c15;
   margin-left: auto;
   margin-right: auto;
 }
@@ -724,9 +723,9 @@ footer .grid-container {
 
 footer .logo {
   display: block;
-  margin-bottom: 2rem;
-  height: 8rem;
-  margin-top: -2rem;
+  margin-bottom: -8rem;
+  height: 25rem;
+  margin-top: -12rem;
 }
 
 .logo-section {
@@ -792,7 +791,7 @@ footer nav:nth-child(4) {
 
 .contacts {
   font-size: 1.6rem;
-  color: #0d1b2a;
+  color: #081c15;
 }
 .address {
   color: #eaeae851;

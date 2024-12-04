@@ -1,4 +1,6 @@
-<?php $_SESSION['user'] = "jobseeker"
+<?php
+include("database.php");
+session_start();
 ?>
 <!-- Change the value to view the page as different roles, as specified in line 41 -->
 
@@ -20,7 +22,7 @@
   <script
     defer
     src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-  <title>CVForge - CV creator</title>
+  <title>Hospital - Amazing good job 10 points!!!</title>
   <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -37,18 +39,22 @@
         <nav class="header-nav">
           <ul class="header-nav-list">
             <li><a class="header-nav-link" href="index.php?page=home" title="Return to home page">Home</a></li>
-
-            <?php if ($_SESSION['user'] == "jobseeker"): ?> <!----- Header when logged in as a jobseeker ----->
-              <li><a class="header-nav-link" href="index.php?page=myCVs" title="Go to view CVs">My CVs</a></li>
-              <li><a class="header-nav-link" href="index.php?page=add" title="Go to add CVs">Add CV</a></li>
-              <li><a class="header-nav-link" href="index.php?page=viewCVs" title="Go to view CVs">View CVs</a></li>
+            <?php if (!isset($_SESSION['role'])): ?> <!----- Header when not logged in------>
+              <li><a class="header-nav-link" href="index.php?page=login" title="Go to login page">Login</a></li>
+              <li>
+                <a href="index.php?page=register" class="header-nav-link call-to-action" title="Go to register page">Sign up</a>
+              </li>
+            <?php elseif ($_SESSION['role'] == "Admin"): ?> <!----- Header when logged in as an admin ----->
+              <li><a class="header-nav-link" href="index.php?page=patients">Patients</a></li>
+              <li><a class="header-nav-link" href="#">Employees</a></li>
+              <li><a class="header-nav-link" href="#">Departments</a></li>
               <div class="user-info">
                 <ion-icon class="user-icon" name="person-circle"></ion-icon>
                 <div class="info">
-                  <p><?php echo $_SESSION['user']; ?></p>
-                  <p><?php echo "(user@gmail.com)" ?></p>
+                  <p><?php echo $_SESSION['name']; ?></p>
+                  <p><?php echo "(" . $_SESSION['user'] . ")"; ?></p>
                   <!-- Log out button -->
-                  <form action="index.php?page=login" method="post" style="display: inline;">
+                  <form method="post" style="display: inline;">
                     <input type="submit" value="Log out" class="logout-btn" />
                     <?php
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -61,12 +67,29 @@
                   </form>
                 </div>
               </div>
-
-            <?php else: ?> <!----- Header when not logged in------>
-              <li><a class="header-nav-link" href="index.php?page=login" title="Go to login page">Login</a></li>
-              <li>
-                <a href="index.php?page=register" class="header-nav-link call-to-action" title="Go to register page">Sign up</a>
-              </li>
+            <?php else: ?> <!----- Header when logged in NOT as an admin ----->
+              <li><a class="header-nav-link" href="index.php?page=patients">Patients</a></li>
+              <li><a class="header-nav-link" href="#">Employees</a></li>
+              <li><a class="header-nav-link" href="#">Departments</a></li>
+              <div class="user-info">
+                <ion-icon class="user-icon" name="person-circle"></ion-icon>
+                <div class="info">
+                  <p><?php echo $_SESSION['name']; ?></p>
+                  <p><?php echo "(" . $_SESSION['user'] . ")"; ?></p>
+                  <!-- Log out button -->
+                  <form method="post" style="display: inline;">
+                    <input type="submit" value="Log out" class="logout-btn" />
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                      session_unset();
+                      session_destroy();
+                      header('Location: index.php?page=login');
+                      exit();
+                    }
+                    ?>
+                  </form>
+                </div>
+              </div>
             <?php endif; ?>
           </ul>
         </nav>
@@ -74,12 +97,11 @@
     </div>
     <div class="header-container">
       <div class="header-container-inner">
-        <h1 class="heading">Your career, your story, your identity, your CV</h1>
+        <h1 class="heading">Your Health, Our Priority</h1>
         <p class="hero-description">
-          Post your CV online with ease. Let employers find you anywhere, anytime. Tailored to your personal
-          preferences and need.
+          Dedicated to providing exceptional care with compassion. Explore our services, find specialists, and access
+          resources tailored to your healthcare needs.
         </p>
-        <a href="#" class="gradient-box-shadow">Start now</a>
       </div>
     </div>
 
@@ -98,9 +120,9 @@
 
   <section class="CVs" id="products">
     <div class="container">
-      <span class="supheading">Samples</span>
+      <span class="supheading">Our Services</span>
       <h2 class="subheading">
-        CVForge has created 5,000+ CVs
+        Trusted by Thousands of Patients
       </h2>
     </div>
     <div
@@ -112,54 +134,53 @@
             --m-bottom: 2.4rem;
           ">
       <div class="CV-img">
-        <img src="content/img/samples/sample-CV-1.png" alt="First sample CV of color grey" />
+        <img src="content/img/samples/sample1.jpg" alt="Doctor consulting a patient" />
       </div>
       <div class="categories">
         <h3 class="subsubheading">
-          CVForge works with many kinds of CVs
+          Comprehensive Care for Your Well-being
         </h3>
         <ul class="list">
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Simple CV creation</span>
+            <span>Expert medical specialists</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Customizable colors</span>
+            <span>State-of-the-art facilities</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Secure data storage</span>
+            <span>24/7 emergency services</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Shareable CV links
-            </span>
+            <span>Advanced diagnostic tools</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>PDF upload option</span>
+            <span>Personalized treatment plans</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Quick URL generation</span>
+            <span>Telemedicine consultations</span>
           </li>
           <li class="item">
             <ion-icon class="CV-icon" name="checkmark"></ion-icon>
-            <span>Fast CV updates
-            </span>
+            <span>Compassionate patient care</span>
           </li>
         </ul>
       </div>
       <div class="CV-img">
-        <img src="content/img/samples/sample-CV-2.png" alt="Second sample CV of color dark blue" />
+        <img src="content/img/samples/sample2.jpg" alt="Hospital ward with advanced equipment" />
       </div>
   </section>
+
 
   <section class="testimonial-container">
     <h3 class="supheading">Testimonial</h3>
     <h2 class="subheading">
-      Hear from our customers
+      Hear from our patients
     </h2>
     <div
       class="testimonials grid-container"
@@ -167,53 +188,54 @@
       <div class="testimonial-first-img-wrapper">
         <img
           class="testimonial-first-img"
-          src="content/img/customers/customer-alice.jpg" alt="Our first testimonials providers, Alice" />
+          src="content/img/customers/patient-alice.jpg" alt="Our first testimonial provider, Alice" />
       </div>
       <figure class="testimonial-first-text">
         <blockquote class="testimonial-text">
-          "This platform made creating and sharing my CV incredibly easy! The intuitive design and user-friendly interface allowed me to build a professional-looking resume in no time. Plus, the ability to generate a shareable link has been a huge help when applying for jobs. I highly recommend it to anyone looking to streamline their job search!"
+          "The care and attention I received here were extraordinary. From the friendly staff to the expert doctors, everyone went above and beyond to ensure my comfort and recovery. I can't thank them enough!"
         </blockquote>
         <p class="testimonial-author">Alice Palmer</p>
-        <p class="testimonial-author-job">CEO, Pérez-Liorca</p>
+        <p class="testimonial-author-job">Patient</p>
       </figure>
       <figure class="testimonial-part">
         <blockquote class="testimonial-text">
-          "I was impressed with how secure and reliable this website is. This platform truly caters to all my career needs."
+          "The facilities are state-of-the-art, and the staff is compassionate and professional. I felt at ease knowing I was in great hands."
         </blockquote>
         <div class="testimonial-author-detail">
           <img
             class="testimonial-img"
-            src="content/img/customers/customer-ben.jpg" alt="Our second testimonials providers, Ben" />
+            src="content/img/customers/patient-ben.jpg" alt="Our second testimonial provider, Ben" />
           <p class="testimonial-author">Ben Adams</p>
-          <p class="testimonial-author-job">Customer, Arazo & Reda</p>
+          <p class="testimonial-author-job">Patient</p>
         </div>
       </figure>
       <figure class="testimonial-part">
         <blockquote class="testimonial-text">
-          "I can update my CV at any time and highlight my achievements without hassle. It's everything a jobseeker could ask for!"
+          "Thanks to the personalized care plan and the amazing team here, I was able to recover faster than I expected. Highly recommend this hospital!"
         </blockquote>
         <div class="testimonial-author-detail">
           <img
             class="testimonial-img"
-            src="content/img/customers/customer-hannah.jpg" alt="Our third testimonials providers, Hannah" />
+            src="content/img/customers/patient-hannah.jpg" alt="Our third testimonial provider, Hannah" />
           <p class="testimonial-author">Hannah Wallace</p>
-          <p class="testimonial-author-job">Customer, Pérez-Liorca</p>
+          <p class="testimonial-author-job">Patient</p>
         </div>
       </figure>
       <figure class="testimonial-part">
         <blockquote class="testimonial-text">
-          "This website is a lifesaver for jobseekers like me! It is so easy to create and manage my CV, which is an absolute convenience!"
+          "The 24/7 emergency services saved my life. I am so grateful for the dedication and expertise of the staff here."
         </blockquote>
         <div class="testimonial-author-detail">
           <img
             class="testimonial-img"
-            src="content/img/customers/customer-steve.jpg" alt="Our fourth testimonials providers, Steve" />
+            src="content/img/customers/patient-steve.jpg" alt="Our fourth testimonial provider, Steve" />
           <p class="testimonial-author">Steve Solaris</p>
-          <p class="testimonial-author-job">Customer</p>
+          <p class="testimonial-author-job">Patient</p>
         </div>
       </figure>
     </div>
   </section>
+
 
   <section class="accordion-section container">
     <h3 class="supheading">FAQs</h3>
@@ -223,72 +245,73 @@
     <div class="accordions">
       <div class="accordion-item">
         <p class="accordion-number">01</p>
-        <p class="accordion-text">How do I create a CV on this website?</p>
+        <p class="accordion-text">How do I book an appointment?</p>
         <ion-icon name="chevron-forward-outline" class="accordion-chevron-forward"></ion-icon>
         <div class="accordion-hidden-box">
           <p>
-            Creating a CV is simple and user-friendly. Follow these steps to get started:
+            Booking an appointment is simple and convenient. Follow these steps:
           </p>
           <ul>
-            <li>Click on the "Create CV" button on the homepage.</li>
-            <li>Fill out the form with your personal details, education, skills, and experience.</li>
-            <li>(Optional) Upload a PDF version of your CV if you already have one.</li>
-            <li>Save your CV to generate a unique URL for sharing.</li>
+            <li>Click on the "Book Appointment" button on the homepage.</li>
+            <li>Select your preferred doctor or department.</li>
+            <li>Choose a suitable date and time from the available slots.</li>
+            <li>Provide your contact details and confirm your booking.</li>
           </ul>
         </div>
       </div>
 
       <div class="accordion-item open">
         <p class="accordion-number">02</p>
-        <p class="accordion-text">Can I update my CV after posting it?</p>
+        <p class="accordion-text">Can I reschedule or cancel my appointment?</p>
         <ion-icon name="chevron-down-outline" class="accordion-chevron-down"></ion-icon>
         <div class="accordion-hidden-box">
           <p>
-            Yes, you can edit your CV anytime to keep it up-to-date. Simply:
+            Yes, you can reschedule or cancel your appointment easily. Here's how:
           </p>
           <ul>
-            <li>Log in to your account and go to the "My CVs" section.</li>
-            <li>Select the CV you wish to update.</li>
-            <li>Make the necessary changes and save them.</li>
-            <li>The changes will automatically reflect on your shared CV URL.</li>
+            <li>Log in to your account and go to the "My Appointments" section.</li>
+            <li>Select the appointment you wish to modify.</li>
+            <li>Choose a new date and time or cancel the appointment.</li>
+            <li>Confirm your changes to update the booking.</li>
           </ul>
         </div>
       </div>
 
-
       <div class="accordion-item">
         <p class="accordion-number">03</p>
-        <p class="accordion-text">Is my CV visible to everyone?</p>
+        <p class="accordion-text">What are the visiting hours?</p>
         <ion-icon name="chevron-forward-outline" class="accordion-chevron-forward"></ion-icon>
         <div class="accordion-hidden-box">
           <p>
-            No, you control who can view your CV. We offer multiple privacy options:
+            Visiting hours vary by department but are generally:
           </p>
           <ul>
-            <li>Public: Anyone with the CV URL can view your profile.</li>
-            <li>Private: Only authenticated viewers with permission can access your CV.</li>
-            <li>Password-protected: Share a password alongside the CV URL for added security.</li>
+            <li>General Wards: 10:00 AM - 8:00 PM</li>
+            <li>ICU: 4:00 PM - 6:00 PM (limited visitors)</li>
+            <li>Maternity Ward: 12:00 PM - 7:00 PM</li>
           </ul>
         </div>
       </div>
 
       <div class="accordion-item">
         <p class="accordion-number">04</p>
-        <p class="accordion-text">What happens when I upload a PDF version of my CV?</p>
+        <p class="accordion-text">How do I access my medical records?</p>
         <ion-icon name="chevron-forward-outline" class="accordion-chevron-forward"></ion-icon>
         <div class="accordion-hidden-box">
           <p>
-            When you upload a PDF CV:
+            Accessing your medical records is secure and easy:
           </p>
           <ul>
-            <li>It gets securely stored in our database.</li>
-            <li>Viewers accessing your profile can download the PDF for reference.</li>
-            <li>You can still add extra details using the form if needed.</li>
+            <li>Log in to your account on our website.</li>
+            <li>Go to the "My Records" section.</li>
+            <li>View, download, or print your medical history and reports.</li>
+            <li>For additional assistance, contact our support team.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+
 
   <footer>
     <div
