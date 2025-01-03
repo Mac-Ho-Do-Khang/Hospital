@@ -68,9 +68,6 @@ session_start();
                 </div>
               </div>
             <?php else: ?> <!----- Header when logged in NOT as an admin ----->
-              <li><a class="header-nav-link" href="index.php?page=patients">Patients</a></li>
-              <li><a class="header-nav-link" href="#">Employees</a></li>
-              <li><a class="header-nav-link" href="#">Departments</a></li>
               <div class="user-info">
                 <ion-icon class="user-icon" name="person-circle"></ion-icon>
                 <div class="info">
@@ -134,7 +131,7 @@ session_start();
             --m-bottom: 2.4rem;
           ">
       <div class="CV-img">
-        <img src="content/img/samples/sample1.jpg" alt="Doctor consulting a patient" />
+        <img src="content/img/samples/sample4.jpg" alt="Doctor consulting a patient" />
       </div>
       <div class="categories">
         <h3 class="subsubheading">
@@ -172,7 +169,7 @@ session_start();
         </ul>
       </div>
       <div class="CV-img">
-        <img src="content/img/samples/sample2.jpg" alt="Hospital ward with advanced equipment" />
+        <img src="content/img/samples/sample3.jpg" alt="Hospital ward with advanced equipment" />
       </div>
   </section>
 
@@ -188,13 +185,13 @@ session_start();
       <div class="testimonial-first-img-wrapper">
         <img
           class="testimonial-first-img"
-          src="content/img/customers/patient-alice.jpg" alt="Our first testimonial provider, Alice" />
+          src="content/img/customers/patient-phuoc.jpg" alt="Our first testimonial provider, Phuoc U Nu" />
       </div>
       <figure class="testimonial-first-text">
         <blockquote class="testimonial-text">
-          "The care and attention I received here were extraordinary. From the friendly staff to the expert doctors, everyone went above and beyond to ensure my comfort and recovery. I can't thank them enough!"
+          "Nhờ tham gia bệnh viện tâm thần mà toi đã cải thiện được tình trạng béo phì của bản thân!!!!"
         </blockquote>
-        <p class="testimonial-author">Alice Palmer</p>
+        <p class="testimonial-author">Phước bé(o) - sweet but psycho - </p>
         <p class="testimonial-author-job">Patient</p>
       </figure>
       <figure class="testimonial-part">

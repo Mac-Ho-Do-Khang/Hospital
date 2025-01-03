@@ -113,7 +113,7 @@ session_start();
                 <div class="CV-form-part ID">
                     <div class="CV-form-icon-label">
                         <ion-icon name="information-circle"></ion-icon>
-                        <label>ID</label>
+                        <label>ID*</label>
                     </div>
                     <input type="text" name="patient_id" class="autocomplete_patient_ids" placeholder="GP000000001" required>
                 </div>
@@ -148,7 +148,7 @@ session_start();
                     <div class="CV-form-part Name">
                         <div class="CV-form-icon-label">
                             <ion-icon name="person"></ion-icon>
-                            <label>First Name</label>
+                            <label>First Name*</label>
                         </div>
                         <input type="text" name="toadd_first_name" placeholder="John M.">
                     </div>
@@ -156,7 +156,7 @@ session_start();
                     <div class="CV-form-part Name">
                         <div class="CV-form-icon-label">
                             <ion-icon name="person"></ion-icon>
-                            <label>Last Name</label>
+                            <label>Last Name*</label>
                         </div>
                         <input type="text" name="toadd_last_name" placeholder="Doe">
                     </div>
@@ -164,7 +164,7 @@ session_start();
                     <div class="CV-form-part DOB">
                         <div class="CV-form-icon-label">
                             <ion-icon name="calendar"></ion-icon>
-                            <label>Date of Birth</label>
+                            <label>Date of Birth*</label>
                         </div>
                         <input type="date" name="toadd_dob" placeholder="14/03/2004">
                     </div>
@@ -172,7 +172,7 @@ session_start();
                     <div class="CV-form-part Gender">
                         <div class="CV-form-icon-label">
                             <ion-icon name="transgender"></ion-icon>
-                            <label>Gender</label>
+                            <label>Gender*</label>
                         </div>
                         <select name="toadd_gender">
                             <option value="">---Choose one---</option>
@@ -184,7 +184,7 @@ session_start();
                     <div class="CV-form-part Phone">
                         <div class="CV-form-icon-label">
                             <ion-icon name="call"></ion-icon>
-                            <label>Phone Number</label>
+                            <label>Phone Number*</label>
                         </div>
                         <input type="text" name="toadd_phone" placeholder="919-263-1770">
                     </div>
@@ -192,7 +192,7 @@ session_start();
                     <div class="CV-form-part Addresses">
                         <div class="CV-form-icon-label">
                             <ion-icon name="location"></ion-icon>
-                            <label>Address</label>
+                            <label>Address*</label>
                         </div>
                         <!-- <div id="addresses-container">
                         <div class="with-trashbin"> -->
@@ -509,7 +509,7 @@ session_start();
                     <div class="outpatient-wrapper">
                         <div class="outpatient">
                             <div class="examinations-information">
-                                <?php $count_examination = 0;
+                                <?php $count_examination = 1;
                                 foreach ($_SESSION['outpatient'] as $k => $examination) {
                                     if (is_int($k) && $k >= 0) {
                                 ?>
@@ -584,7 +584,7 @@ session_start();
                     <div class="CV-form-title patient-title">Inpatient</div>
                     <div class="patients-informations-wrapper">
                         <div class="patients-informations">
-                            <?php $count_patient = 0;
+                            <?php $count_patient = 1;
                             foreach ($_SESSION['patients'] as $k => $patient) {
                                 if (is_int($k) && $k >= 0) {
                             ?>
@@ -723,9 +723,9 @@ session_start();
                                         }
                                     }
                                     ?>
-                                    <p>$100.50</p>
-                                    <p>$50.45</p>
-                                    <p>$150.95</p>
+                                    <p><?= $record['FEE'] ?></p>
+                                    <p><?= $record['TOTAL_MEDICAL_PRICE'] ?></p>
+                                    <p><?= $record['TOTAL_FEE'] ?></p>
                                 </div>
                         <?php }
                             unset($_SESSION['fee']);

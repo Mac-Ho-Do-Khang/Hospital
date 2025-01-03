@@ -28,6 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['fee_general'] = mysqli_fetch_all($general_information, MYSQLI_ASSOC);
     } else {
         $_SESSION['fee_error'] = "No patient found.";
+        unset($_SESSION['fee']);
+        $connection->close();
+        header("Location: index.php?page=patients");
+        exit;
     }
 
     // ----------------------------------------------------------------------------------------------------------

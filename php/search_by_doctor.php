@@ -4,6 +4,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $doctorID =  trim(filter_input(INPUT_POST, 'doctor_id', FILTER_SANITIZE_SPECIAL_CHARS));
+    // $doctorID = $_POST['doctor_id'];
     $doctorName = end(explode(" ", trim(filter_input(INPUT_POST, 'doctor_name', FILTER_SANITIZE_SPECIAL_CHARS))));
     $_SESSION['tab'] = "search_by_doctor";
 

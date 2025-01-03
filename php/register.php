@@ -61,9 +61,9 @@
                                 <label for="where">Select your role</label>
                                 <select name="select" id="where" required>
                                     <option value="">Choose one</option>
-                                    <option value="1">Admin</option>
                                     <option value="2">Employee</option>
                                     <option value="3">Patient</option>
+                                    <option value="4">Other</option>
                                 </select>
                             </div>
                             <button class="btn btn-full">Sign up</button>

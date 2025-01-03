@@ -3,8 +3,7 @@ include("database.php");
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // echo $_POST['patient_id'];
-    // echo filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_SPECIAL_CHARS);
+
     $patientID = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_SPECIAL_CHARS));
     $patientName = end(explode(" ", trim(filter_input(INPUT_POST, 'patient_name', FILTER_SANITIZE_SPECIAL_CHARS))));
     $_SESSION['tab'] = "search_by_id";

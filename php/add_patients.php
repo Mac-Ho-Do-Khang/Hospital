@@ -63,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Only one row
         $_SESSION['general'] = mysqli_fetch_all($general_information, MYSQLI_ASSOC);
         $_SESSION['patient_ID_get'] = $patientID;
+
         if ($_POST['action'] == "Add Patient") {
             $_SESSION['add_error'] = "Patient already exists.";
         }
@@ -71,6 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ----------------------------------------------- ADD PATIENT ----------------------------------------------
         // ----------------------------------------------------------------------------------------------------------
         if ($_POST['action'] == "Add Patient") {
+            if (!preg_match('/^GP\d{9}$/', $patientID)) {
+                $_SESSION['add_error'] = "Invalid code format";
+                $connection->close();
+                header("Location: index.php?page=patients");
+                exit;
+            }
             $gender = ($patientGender == "Male") ? "M" : "F";
             $address = $patientSreet . ", " . $patientCity . ", " . $patientState . ", " . $patientCountry;
             $insert_patient_query = "INSERT INTO $tb_patient (CODE, FIRST_NAME, LAST_NAME, GENDER, PHONE_NUMBER, DATE_OF_BIRTH, ADDRESS)
