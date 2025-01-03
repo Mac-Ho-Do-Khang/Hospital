@@ -5,11 +5,17 @@ This project is a web-based Hospital Management System developed as part of the 
 ## Features  
 
 ### Authentication
+- **Sign Up**:  
+  - Users can register an account as an employee, patient or other.
+  - There is one **Admin** account, which cannot be registered and hardcoded as followed:
+    - _Username: **admin**_
+    - _Password: **admin**_ 
+ 
 - **Log In/Log Out**:  
   - Managers can log in using a username and password.  
-  - Securely log out to end the session.  
+  - Securely log out to end the session.
 
-### Hospital Database Management
+### Hospital Database Management (Admin account only)
 1. **Search Patient Information**:  
    - Search by patient details.  
    - Results include the patient’s name, phone number, and treatment/visit history.  
