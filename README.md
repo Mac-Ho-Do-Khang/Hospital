@@ -4,23 +4,23 @@ This project is a web-based Hospital Management System developed as part of the 
 
 ## Features  
 
-### Authentication (0.5 mark)  
+### Authentication
 - **Log In/Log Out**:  
   - Managers can log in using a username and password.  
   - Securely log out to end the session.  
 
-### Hospital Database Management (2 marks)  
-1. **Search Patient Information** (0.5 mark):  
+### Hospital Database Management
+1. **Search Patient Information**:  
    - Search by patient details.  
    - Results include the patient’s name, phone number, and treatment/visit history.  
 
-2. **Add New Patient** (0.5 mark):  
+2. **Add New Patient**:  
    - Add detailed information for a new patient into the database.  
 
-3. **List Patients Treated by a Doctor** (0.5 mark):  
+3. **List Patients Treated by a Doctor**:  
    - View all patients assigned to a specific doctor.  
 
-4. **Generate Payment Reports** (0.5 mark):  
+4. **Generate Payment Reports**:  
    - Create detailed reports of payments for each treatment or examination for a patient.  
 
 ## Database Design  
