@@ -54,14 +54,17 @@ Both files are provided as **HTML documents** for reference.
 
 ## Screenshots  
 
-- **Login Page**  
-  ![Login Page](screenshots/login_page.png)  
+- **Home Page**  
+  ![Login Page](screenshots/home.png)
 
-- **Patient Search**  
-  ![Patient Search](screenshots/patient_search.png)  
+- **Login Page**  
+![Login Page](screenshots/login.png)
+
+- **Register Page**  
+  ![Login Page](screenshots/signup.png)  
 
 - **Payment Report**  
-  ![Payment Report](screenshots/payment_report.png)  
+  ![Payment Report](screenshots/search.png)  
 
 ---  
 
